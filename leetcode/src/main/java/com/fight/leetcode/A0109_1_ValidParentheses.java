@@ -20,36 +20,40 @@ import java.util.Stack;
  * 链接：https://leetcode-cn.com/problems/valid-parentheses
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class A0109_ValidParentheses {
+public class A0109_1_ValidParentheses {
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        Solution solution = new A0109_1_ValidParentheses().new Solution();
 //        String str = "[(()[])]";
         String str = "()";
         boolean valid = solution.isValid(str);
         System.out.println(valid);
     }
-}
 
-class Solution {
-    public boolean isValid(String s) {
-        Stack<Character> stack = new Stack<>();
-        Map<Character, Character> map = new HashMap<>();
-        map.put(')','(');
-        map.put(']','[');
-        map.put('}','{');
+    /**
+     * 选择栈数据结构
+     */
+    class Solution {
+        public boolean isValid(String s) {
+            Stack<Character> stack = new Stack<>();
+            Map<Character, Character> map = new HashMap<>();
+            map.put(')','(');
+            map.put(']','[');
+            map.put('}','{');
 
-        for (int i=0; i<s.length();i++) {
-            char c = s.charAt(i);
-            if (map.containsKey(c)) {
-                Character top = stack.isEmpty()?'#':stack.pop();
-                if (top != map.get(c)) {
-                    return false;
+            for (int i=0; i<s.length();i++) {
+                char c = s.charAt(i);
+                if (map.containsKey(c)) {
+                    Character top = stack.isEmpty()?'#':stack.pop();
+                    if (top != map.get(c)) {
+                        return false;
+                    }
+                } else {
+                    stack.push(c);
                 }
-            } else {
-                stack.push(c);
             }
+            return stack.isEmpty();
         }
-        return stack.isEmpty();
     }
 }
+
