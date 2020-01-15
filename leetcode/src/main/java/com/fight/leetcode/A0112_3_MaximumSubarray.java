@@ -1,7 +1,5 @@
 package com.fight.leetcode;
 
-import java.util.Map;
-
 /**
  * 53. 最大子序和
  *
@@ -52,6 +50,22 @@ public class A0112_3_MaximumSubarray {
             return maxSum;
         }
 
+        /**
+         * 动态规划的难点在于找到状态转移方程，
+         * dp[i] - 表示到当前位置 i 的最大子序列和
+         * 状态转移方程为： dp[i] = max(dp[i - 1] + nums[i], nums[i])
+         * 初始化：dp[0] = nums[0]
+         *
+         * 从状态转移方程中，我们只关注前一个状态的值，所以不需要开一个数组记录位置所有子序列和，只需要两个变量，
+         * currMaxSum - 累计最大和到当前位置i
+         * maxSum - 全局最大子序列和:
+         *
+         * currMaxSum = max(currMaxSum + nums[i], nums[i])
+         * maxSum = max(currMaxSum, maxSum)
+         *
+         * @param nums
+         * @return
+         */
         public int maxSubArray2(int[] nums) {
             int currentMaxSum = nums[0];
             int maxSum = nums[0];
