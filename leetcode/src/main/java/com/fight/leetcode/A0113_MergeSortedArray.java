@@ -21,14 +21,14 @@ package com.fight.leetcode;
  * 链接：https://leetcode-cn.com/problems/merge-sorted-array
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class A0113_4_MergeSortedArray {
+public class A0113_MergeSortedArray {
 
     public static void main(String[] args) {
         int[] nums1 = new int[]{1, 2, 3, 0, 0, 0};
         int[] nums2 = new int[]{2, 5, 6};
         int m = 3;
         int n = 3;
-        Solution solution = new A0113_4_MergeSortedArray().new Solution();
+        Solution solution = new A0113_MergeSortedArray().new Solution();
         solution.merge(nums1, m, nums2, n);
         for (int ele : nums1) {
             System.out.println(ele);

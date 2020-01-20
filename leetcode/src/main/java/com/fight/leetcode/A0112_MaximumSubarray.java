@@ -19,11 +19,11 @@ package com.fight.leetcode;
  * 链接：https://leetcode-cn.com/problems/maximum-subarray
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class A0112_3_MaximumSubarray {
+public class A0112_MaximumSubarray {
 
     public static void main(String[] args) {
         int[] nums = new int[]{-2,1,-3,4,-1,2,1,-5,4};
-        Solution solution = new A0112_3_MaximumSubarray().new Solution();
+        Solution solution = new A0112_MaximumSubarray().new Solution();
 //        int max = solution.maxSubArray(nums);
         int max = solution.maxSubArray2(nums);
         System.out.println(max);
