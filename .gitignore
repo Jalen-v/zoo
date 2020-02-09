@@ -28,7 +28,7 @@
 ### OSX ###
 .DS_Store
 tmp*
-.*/target
+*/target
 *.bak
 *.diff
 
