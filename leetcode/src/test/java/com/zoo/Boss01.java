@@ -25,7 +25,7 @@ public class Boss01 {
                 long t1 = System.currentTimeMillis();
                 char ch = 'a';
                 while(ch <= 'z') {
-                    System.out.println(ch++);
+                    System.out.print(ch++);
                     countDownLatch0[0].countDown();
                     try {
                         cyclicBarrier.await();
@@ -33,7 +33,7 @@ public class Boss01 {
                         e.printStackTrace();
                     }
                 }
-                System.out.println(Thread.currentThread().getName() + "-a cost: " + (System.currentTimeMillis()-t1) + "ms");
+                System.out.println(Thread.currentThread().getName() + " 小写字母打印线程耗时: " + (System.currentTimeMillis()-t1) + "ms");
                 countDownLatch1.countDown();
             }
         });
@@ -46,13 +46,15 @@ public class Boss01 {
                 while(ch <= 'Z') {
                     try {
                         countDownLatch0[0].await();
-                        System.out.println(ch++);
+                        System.out.print(ch++);
+                        if (ch == 'Z'+1)
+                            System.out.println();
                         cyclicBarrier.await();
                     } catch (InterruptedException | BrokenBarrierException e) {
                         e.printStackTrace();
                     }
                 }
-                System.out.println(Thread.currentThread().getName() + "-A cost: " + (System.currentTimeMillis()-t1) + "ms");
+                System.out.println(Thread.currentThread().getName() + " 大写字母打印线程耗时: " + (System.currentTimeMillis()-t1) + "ms");
                 countDownLatch1.countDown();
             }
         });
@@ -62,7 +64,7 @@ public class Boss01 {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("total cost: " + (System.currentTimeMillis()-t0) + "ms");
+        System.out.println(Thread.currentThread().getName() + " 总耗时: " + (System.currentTimeMillis()-t0) + "ms");
         executorService.shutdown();
     }
 }
