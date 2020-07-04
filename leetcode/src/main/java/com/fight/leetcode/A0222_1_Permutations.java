@@ -39,7 +39,7 @@ public class A0222_1_Permutations {
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> list = new ArrayList<>();
         // Arrays.sort(nums); // not necessary
-        backtrack(list, new ArrayList<>(), nums);
+        backtrack(list, new ArrayList<Integer>(), nums);
         return list;
     }
 

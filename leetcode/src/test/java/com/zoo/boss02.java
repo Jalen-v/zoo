@@ -2,7 +2,7 @@ package com.zoo;
 
 import java.math.BigInteger;
 
-public class Boss02_1 {
+public class boss02 {
     public static void main(String[] args) {
         BigInteger ans = sumOfPrimeFactorial(100);
         System.out.println(ans);
